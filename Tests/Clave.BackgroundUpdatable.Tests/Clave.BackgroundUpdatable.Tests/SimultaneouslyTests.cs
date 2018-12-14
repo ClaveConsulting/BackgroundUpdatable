@@ -22,7 +22,7 @@ namespace Clave.BackgroundUpdatable.Tests
         public async Task TestThread()
         {
             var sw = Stopwatch.StartNew();
-            await Simultaneously.Run(5, () => Sleep("test"));
+            await Simultaneously.Run(2, () => Sleep("test"));
             sw.ElapsedMilliseconds.ShouldBeInRange(100, 150);
         }
 
