@@ -117,10 +117,7 @@ namespace Clave.BackgroundUpdatable.Tests
                 TimeSpan.FromMinutes(10),
                 spy.Func);
 
-            var sw = Stopwatch.StartNew();
             var results = await Simultaneously.Run(5, updatable.Value);
-
-            sw.Elapsed.ShouldBeInRange(TimeSpan.FromMilliseconds(100), TimeSpan.FromMilliseconds(150));
 
             results.ShouldAllBe(x => x == "updated value");
 
